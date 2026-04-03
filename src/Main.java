@@ -1,13 +1,22 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+public static void main(String[] args) {
+    Player hero = new Player("Adam", 5);
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
-    }
+    Weapon staff = new Weapon("Staff", 10, 3, "Magic");
+    Weapon sword = new Weapon("Sword", 12, 4, "Physical");
+
+    Armor robe = new Armor("Robe", 8, 2, "Cloth");
+
+    hero.addItemToInventory(staff);
+    hero.addItemToInventory(sword);
+    hero.addItemToInventory(robe);
+
+    hero.displayInventory();
+
+    hero.equipWeapon(staff);
+    hero.equipArmor(robe);
+
+    System.out.println("Total Stats: " + hero.getTotalStats());
+    hero.displayInventory();
 }
