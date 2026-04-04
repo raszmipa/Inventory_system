@@ -39,8 +39,7 @@ public class Player {
         }
     }
 
-    //methods
-     public int getTotalStats() {
+    public int getTotalStats() {
         int totalStats = this.baseStats;
 
         if(equipedWeapon != null) {
@@ -49,14 +48,16 @@ public class Player {
         if(equipedArmor != null) {
             totalStats += equipedArmor.getStatBonus();
         }
-
         return totalStats;
-     }
+    }
 
-     public void addItemToInventory(Item item) {
+    public int getGold() {
+        return this.gold;
+    }
+
+    public void addItemToInventory(Item item) {
         this.inventory.add(item);
-     }
-
+    }
     public void removeItemFromInventory(Item item) {
         this.inventory.remove(item);
     }
@@ -66,6 +67,13 @@ public class Player {
         for(Item item : inventory) {
             System.out.println("Nazwa: " + item.getName() + ", Cena: " + item.getPrice() + ", Bonus: " + item.getStatBonus());
         }
+    }
 
+    public void substractGold(int amount) {
+        this.gold -= amount;
+    }
+
+    public void addGold(int amount) {
+        this.gold += amount;
     }
 }
