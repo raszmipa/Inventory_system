@@ -1,16 +1,23 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public static void main(String[] args) {
     Player hero = new Player("Adam", 5);
+    Shop biedronka = new Shop();
+    goldGenThread passiveGoldThread = new goldGenThread(hero);
+    passiveGoldThread.start();
 
-    Weapon staff = new Weapon("Staff", 10, 3, "Magic");
-    Weapon sword = new Weapon("Sword", 12, 4, "Physical");
+    Weapon staff = new Weapon(0,"Staff", 10, 3, "Magic");
+    Weapon sword = new Weapon(1,"Sword", 12, 4, "Physical");
+    Armor robe = new Armor(2,"Robe", 8, 2, "Cloth");
 
-    Armor robe = new Armor("Robe", 8, 2, "Cloth");
-
-    hero.addItemToInventory(staff);
-    hero.addItemToInventory(sword);
-    hero.addItemToInventory(robe);
+    biedronka.addItemToShop(staff);
+    biedronka.addItemToShop(sword);
+    biedronka.addItemToShop(robe);
+    biedronka.buyItem(staff, hero);
+    biedronka.buyItem(sword, hero);
+    biedronka.buyItem(robe, hero);
+    //hero.addItemToInventory(staff);
+    //hero.addItemToInventory(sword);
+    //hero.addItemToInventory(robe);
 
     hero.displayInventory();
 
@@ -19,4 +26,5 @@ public static void main(String[] args) {
 
     System.out.println("Total Stats: " + hero.getTotalStats());
     hero.displayInventory();
+
 }
