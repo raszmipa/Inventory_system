@@ -5,15 +5,18 @@ public class Player {
     private String name;
     private int gold;
     private int baseStats;
+    private int currentHealth;
+    private int maxHealth;
     private List<Item> inventory;
-
     private Weapon equipedWeapon;
     private Armor equipedArmor;
 
-    public Player(String name, int baseStats) {
+    public Player(String name, int baseStats, int maxHealth) {
         this.gold = 100;
         this.name = name;
         this.baseStats = baseStats;
+        this.maxHealth = maxHealth;
+        this.currentHealth = maxHealth;
         this.inventory = new ArrayList<Item>();
         this.equipedWeapon = null;
         this.equipedArmor = null;
@@ -75,5 +78,30 @@ public class Player {
 
     public void addGold(int amount) {
         this.gold += amount;
+    }
+
+    public void takeDamage(int amount) {
+        if(this.currentHealth > amount) {
+            this.currentHealth -= amount;
+        } else {
+            this.currentHealth = 0;
+        }
+    }
+    public void heal(int amount) {
+        if(this.currentHealth + amount <= maxHealth) {
+            this.currentHealth += amount;
+        } else {
+            this.currentHealth = maxHealth;
+        }
+    }
+
+    public void attack(Enemy enemy) {
+        enemy.takeDamage(this.getTotalStats());
+        System.out.println("Gracz atakuje przeciwnika za " + this.getTotalStats());
+    }
+
+
+    public boolean isAlive() {
+        return currentHealth > 0;
     }
 }

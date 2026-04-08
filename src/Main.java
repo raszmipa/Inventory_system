@@ -1,6 +1,6 @@
 
 public static void main(String[] args) {
-    Player hero = new Player("Adam", 5);
+    Player hero = new Player("Adam", 5,10);
     Shop biedronka = new Shop();
     goldGenThread passiveGoldThread = new goldGenThread(hero);
     passiveGoldThread.start();
