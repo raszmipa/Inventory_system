@@ -40,6 +40,11 @@ public class Enemy {
         }
     }
 
+    public void attack(Player player) {
+        player.takeDamage(this.attackPower);
+        System.out.println("Przciwnik atakuje gracz za: " + this.attackPower);
+    }
+
     public boolean isAlive() {
         return this.currentHealth > 0;
     }

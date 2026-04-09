@@ -54,6 +54,10 @@ public class Player {
         return totalStats;
     }
 
+    public int getCurrentHealth() {
+        return this.currentHealth;
+    }
+
     public int getGold() {
         return this.gold;
     }
