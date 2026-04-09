@@ -100,6 +100,15 @@ public class Player {
         System.out.println("Gracz atakuje przeciwnika za " + this.getTotalStats());
     }
 
+    public void consumeItem(Item item) {
+        if(inventory.contains(item) && item instanceof Usable) {
+            ((Usable) item).use(this);
+            removeItemFromInventory(item);
+        } else {
+            System.out.println("Nie można użyć tego przedmiotu");
+        }
+    }
+
 
     public boolean isAlive() {
         return currentHealth > 0;

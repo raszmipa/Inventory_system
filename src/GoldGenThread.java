@@ -1,6 +1,6 @@
-public class goldGenThread extends Thread{
+public class GoldGenThread extends Thread{
     private Player player;
-    public goldGenThread(Player player) {
+    public GoldGenThread(Player player) {
         this.player = player;
     }
     @Override

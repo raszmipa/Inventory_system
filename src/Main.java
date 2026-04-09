@@ -2,7 +2,7 @@
 public static void main(String[] args) {
     Player hero = new Player("Adam", 5,10);
     Shop biedronka = new Shop();
-    goldGenThread passiveGoldThread = new goldGenThread(hero);
+    GoldGenThread passiveGoldThread = new GoldGenThread(hero);
     passiveGoldThread.start();
 
     Weapon staff = new Weapon(0,"Staff", 10, 3, "Magic");
