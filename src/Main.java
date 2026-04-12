@@ -1,7 +1,7 @@
-
 public static void main(String[] args) {
     Player hero = new Player("Adam", 5,10);
     Shop biedronka = new Shop();
+    Enemy enemy = new Enemy("slime", 50, 2);
     GoldGenThread passiveGoldThread = new GoldGenThread(hero);
     passiveGoldThread.start();
 
@@ -27,4 +27,6 @@ public static void main(String[] args) {
     System.out.println("Total Stats: " + hero.getTotalStats());
     hero.displayInventory();
 
+    BattleManager battleManager = new BattleManager();
+    battleManager.startBattle(hero,enemy);
 }

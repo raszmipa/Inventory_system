@@ -12,7 +12,6 @@ public class GoldGenThread extends Thread{
                 e.printStackTrace();
             }
             player.addGold(5);
-            System.out.println(player.getGold());
         }
     }
 }

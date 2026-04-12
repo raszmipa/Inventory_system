@@ -54,6 +54,8 @@ public class Player {
         return totalStats;
     }
 
+
+
     public int getCurrentHealth() {
         return this.currentHealth;
     }
