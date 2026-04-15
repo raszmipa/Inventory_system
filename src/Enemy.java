@@ -3,12 +3,14 @@ public class Enemy {
     private int currentHealth;
     private int maxHealth;
     private int attackPower;
+    private static int totalEnemiesCreated;
 
     public Enemy(String name, int maxHealth, int attackPower) {
         this.name = name;
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
         this.attackPower = attackPower;
+        totalEnemiesCreated++;
     }
 
     public String getName() {
@@ -22,6 +24,9 @@ public class Enemy {
     }
     public int getAttackPower() {
         return attackPower;
+    }
+    public static int getTotalEnemiesCreated() {
+        return totalEnemiesCreated;
     }
 
     public void takeDamage(int amount) {

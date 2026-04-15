@@ -102,8 +102,14 @@ public class Player {
     }
 
     public void attack(Enemy enemy) {
-        enemy.takeDamage(this.getTotalStats());
-        System.out.println("Gracz atakuje przeciwnika za " + this.getTotalStats());
+        int damage;
+        if(Dice.roll(1,10) > 9){
+            damage = this.getTotalStats() * 2;
+        } else {
+            damage = this.getTotalStats();
+        }
+        enemy.takeDamage(damage);
+        System.out.println("Gracz atakuje przeciwnika za " + damage);
     }
 
     public void consumeItem(Item item) {
